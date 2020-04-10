@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING
   }, {});
   Book.associate = (models) => {
-    Book.belongsTo(models.Author)
+    Book.belongsTo(models.Author, { foreignKey: 'AuthorId', as: 'author' })
   };
   return Book;
 };

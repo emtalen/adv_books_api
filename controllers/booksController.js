@@ -11,12 +11,13 @@ const booksController = {
     const book = await models.Book.findByPk(id, {
       include: [
         {
-          model: models.Author
-          // attributes: ['firstName', 'lastName']
-        }
-      ]})
-    res.json({ book: book })
+          model: models.Author,
+          as: "author",
+        },
+      ],
+    });
+    res.json({ book });
   },
 };
 
-module.exports = booksController
+module.exports = booksController;
