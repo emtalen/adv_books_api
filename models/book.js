@@ -1,10 +1,18 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define('Book', {
-    title: DataTypes.STRING
-  }, {});
+  const Book = sequelize.define(
+    "Book",
+    {
+      title: { 
+        type: DataTypes.STRING, 
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        } 
+      },
+    }, {});
   Book.associate = (models) => {
-    Book.belongsTo(models.Author, { foreignKey: 'AuthorId', as: 'author' })
+    Book.belongsTo(models.Author, { foreignKey: "AuthorId", as: "author" });
   };
   return Book;
 };
