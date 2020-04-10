@@ -3,13 +3,19 @@ module.exports = (sequelize, DataTypes) => {
   const Author = sequelize.define(
     "Author",
     {
-      firstName: { 
-        type: DataTypes.STRING, 
-        allowNull: false 
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
       },
-      lastName: { 
-        type: DataTypes.STRING, 
-        allowNull: false 
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true
+        } 
       },
       fullName: {
         type: DataTypes.VIRTUAL,

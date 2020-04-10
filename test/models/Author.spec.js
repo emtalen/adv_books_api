@@ -48,4 +48,22 @@ describe("Author", () => {
       });
     });
   });
+  describe("constraints", () => {
+    ["firstName", "lastName"].forEach((attribute) => {
+      it(`requires a ${attribute}`, async () => {
+        try {
+          await factory.create("Author", {
+            [attribute]: '',
+          });
+          expect.fail()
+        } catch (err) {
+          expect(err).to.include(
+            {
+              message: `Validation error: Validation notEmpty on ${attribute} failed`,
+            },
+          );
+        }
+      });
+    });
+  });
 });
