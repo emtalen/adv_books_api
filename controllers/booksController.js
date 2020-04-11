@@ -18,6 +18,26 @@ const booksController = {
     });
     res.json({ book });
   },
+
+  // async create(req, res) {
+  //   if (!req.params.title) {
+  //     return res.status(400).send({
+  //       success: false,
+  //       message: "title is required",
+  //     });
+  //   }
+
+  //   const book = {
+  //     id: db.length + 1,
+  //     title: req.params.title,
+  //   };
+  //   await db.push(book);
+  //   return res.status(200).send({
+  //     success: true,
+  //     message: "This book has been added",
+  //     book,
+  //   });
+  // },
 };
 
 module.exports = booksController;
